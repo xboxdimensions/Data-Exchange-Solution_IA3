@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block content %}
+<div><a href="/logout">Logout</a> <a href="/">Main page</a></div>
+
+<h1>Notes</h1>
+<h3>Add a note:</h3>
+<form action="/" method="POST">
+  event_id<input type="event_id" name="event_id" /><br />
+  Note <textarea name="note" id="note" cols="30" rows="10"></textarea> <br />
+  <input type="submit" value="Submit" />
+</form>
+{% endblock %}

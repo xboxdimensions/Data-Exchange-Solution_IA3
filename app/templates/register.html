@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block content %}
+<div class="top">
+  <h1>FSANZ DATA ANALYSIS SITE</h1>
+  <h2>Register</h2>
+
+  {% if error %}
+  <p><strong>Error:</strong> {{ error }} {% endif %}</p>
+  <form action="/register" method="post">
+    Email<input type="email" name="email" style="margin-left: 76px" /><br />
+    Password<input
+      type="password"
+      name="password"
+      style="margin-left: 53px"
+    /><br />
+    Repeat Password <input type="password" name="repeat" /><br />
+    <input type="submit" value="Submit" />
+  </form>
+  <a href="/login">Click if you have an account</a>
+</div>
+{% endblock %}

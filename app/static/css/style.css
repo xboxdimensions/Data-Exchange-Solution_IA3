@@ -1,0 +1,14 @@
+td,
+th {
+  border: 3px solid #000000;
+}
+.top {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+table {
+  border-collapse: collapse;
+}

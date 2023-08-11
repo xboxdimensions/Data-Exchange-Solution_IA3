@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block content %}
+<a href="/logout">Logout</a>
+<div class="top">
+  <h1>FSANZ DATA ANALYSIS SITE</h1>
+  <h2>Information</h2>
+</div>
+
+<p>
+  Current filters: Select all from {%if distpat !=
+  ''%}{{distpat}}{%else%}anywhere{%endif%} and after {%if year !=
+  0%}{{year}}{%else%}anytime{%endif%}
+</p>
+{% set list = [] %}
+<h3>Filters:</h3>
+<form action="/" method="POST">
+  <label for="distpat">Select distribution pattern:</label>
+  <input type="text" id="distpat" name="distpat" /><br />
+  <label>Select recall initiation year:</label>
+  <input type="number" name="year" id="year" min="0" max="2023" />
+  <input type="submit" />
+</form>
+<table>
+  <th>Event Id</th>
+  <th>Recalling Firm</th>
+  <th>Distribution Pattern</th>
+  <th>Product Description</th>
+  <th>Product Quantity</th>
+  <th>Recall Reason</th>
+  <th>Recall Date (YYYYMMDD)</th>
+  <th>Status</th>
+  {%for record in records%}
+  <tr>
+    <td>{{record['event_id']}}</td>
+    <td>{{record['recalling_firm']}}</td>
+    <td>{{record['distribution_pattern']}}</td>
+    <td>{{record['product_description']}}</td>
+    <td>{{record['product_quantity']}}</td>
+    <td>{{record['reason_for_recall']}}</td>
+    <td>{{record['recall_initiation_date']}}</td>
+    <td>{{record['status']}}</td>
+  </tr>
+  {%endfor%}
+</table>
+{% endblock %}
